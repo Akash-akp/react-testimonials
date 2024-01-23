@@ -1,23 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import Testimonials from './Components/Testimonials';
+import { useState , useEffect } from 'react'
 
 function App() {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const fetchData = async() =>{
+    try{
+      const res = await fetch('https://akash-akp.github.io/api-test/testimonialReview.js');
+      const d = await res.json();
+      setData(d);
+      console.log(data);
+    }catch(error){
+      console.log("api error")
+    }
+    setLoading(false);
+  }
+  useEffect(()=>{
+    fetchData();
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-[rgb(229,229,231)] h-[100vh]">
+      <div>
+        {
+          !loading?(<Testimonials data={data.testimonials} />):(<div></div>)
+        }
+        
+      </div>
     </div>
   );
 }
