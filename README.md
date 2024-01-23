@@ -12,8 +12,7 @@
 - Show the rating , name , occupation and comment of the persons
 - Responsive in design
 
-🌐 Live Demo:
-- Link :- https://akashakp-react-testimonials.netlify.app/
+🌐 Live Demo: [Click me](https://akashakp-react-testimonials.netlify.app/)
 
 🙌 New learnings:
 - Integrating Tailwind CSS with React project
